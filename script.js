@@ -31,6 +31,7 @@ const notFound = (r) => {
     document.querySelector("#username").innerHTML = "@octocat";
     document.querySelector("#name").innerHTML = `The Octocat`;
     document.querySelector("#avatar").src = "./assets/Oval.svg";
+    document.querySelector("#bio").style.direction="ltr"
     document.querySelector("#bio").innerHTML = "This user has no bio.";
     document.querySelector("#followers").innerHTML = "0";
     document.querySelector("#following").innerHTML = "0";
