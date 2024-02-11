@@ -401,8 +401,43 @@ main {
     }
 }
 @media only screen and (max-width: 620px) {
+    .content .main {
+        margin-left: 33px;
+    }
+    .content .main .date {
+        margin-left: 144px;
+    }
+    .search-bar input {
+        width: 358px;
+        font-size: 15px;
+    }
+    .content .main .info {
+        width: 99%;
+    }
+    .content .main .info .info-child {
+        width: 49px;
+    }
+    .content .main .info .info-child .text {
+        font-size: 11px;
+    }
+    .content .main .info .info-child span {
+        font-size: 19px;
+    }
+    .content .main .info .repo {
+        margin-right: 25px;
+        margin-left: 28px;
+    }
+    .content .main .info .followers {
+        margin-right: 58px;
+    }
     .contact {
-        gap: 13px 11px;
+        gap: 13px 17px;
+    }
+    .contact .items svg {
+        margin-right: 9px;
+    }
+    .contact .items a {
+        font-size: 12px;
     }
 }
 
@@ -410,17 +445,17 @@ main {
     .container {
         width: 327px;
     }
-    .search-bar img {
-        width: 20px;
-        height: 20px;
+
+    .search-bar svg {
         margin-left: 16px;
     }
     .search-bar input {
-        width: 213px;
+        width: 184px;
         height: 45px;
         margin-left: 9px;
-        font-size: 13px;
+        font-size: 12px;
     }
+
     .search-bar span {
         display: none;
     }
