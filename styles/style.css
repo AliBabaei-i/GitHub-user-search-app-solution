@@ -252,6 +252,7 @@ main {
 }
 .content .main .bio {
     height: 50px;
+    width: 100%;
     display: inline-block;
     margin-top: 20px;
     color: var(--Dark-Gray);
