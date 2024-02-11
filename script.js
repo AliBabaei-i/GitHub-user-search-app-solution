@@ -268,9 +268,9 @@ async function getUser() {
             if (data.blog == null || data.blog == "") {
                 document.querySelector("#awebsite").innerHTML = "Not Available";
                 document.querySelector("#awebsite").href = "#";
-                document.querySelector("#awebsite-img").style.opacity = "0.5";
+                document.querySelector("#website-img").style.opacity = "0.5";
                 document.querySelector("#awebsite").style.opacity = "0.5";
-                document.querySelector("#website").style.opacity = "0.5";
+                // document.querySelector("#website").style.opacity = "0.5";
                 const web = document.querySelector("#website");
                 web.querySelector("div.items.website a").href = "#";
                 web.querySelector("div.items.website a").style.opacity = "0.5";
@@ -278,13 +278,13 @@ async function getUser() {
                 document.querySelector("#awebsite").innerHTML = data.blog;
                 const web = document.querySelector("#website");
                 web.querySelector("div.items.website a").href = data.blog;
-                web.querySelector("div.items.website a").style.opacity = "0.5";
+                // web.querySelector("div.items.website a").style.opacity = "0.5";
                 document.querySelector("#awebsite").style.opacity = "1";
                 // document.querySelector("#awebsite").style.color =
                 //     "var(--Dark-Gray)";
                 // document.querySelector("#awebsite-img").style.color =
                 //     "var(--Dark-Gray)";
-                document.querySelector("#awebsite-img").style.opacity = "1";
+                document.querySelector("#website-img").style.opacity = "1";
             }
         });
     // .catch((error) => {
