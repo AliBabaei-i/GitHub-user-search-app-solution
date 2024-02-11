@@ -191,7 +191,7 @@ main {
     height: 22px;
     width: 92px;
     margin-right: 24px;
-    font-size: 10px;
+    font-size: 15px;
     font: bold;
     font-weight: 900;
 }
@@ -343,6 +343,9 @@ main {
     }
     .search-bar button {
         margin-right: 10px;
+    }
+    .search-bar span {
+        font-size: 10px;
     }
     .content {
         display: block;
