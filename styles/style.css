@@ -1,0 +1,509 @@
+@import url("./reset.css");
+
+:root[data-theme="light"] {
+    --Blue: #0079ff;
+    --Red: #f74646;
+    --Gray: #697c9a;
+    --Dark-Gray: #4b6a9b;
+    --Light-Black: #2b3442;
+    --Light: #f6f8ff;
+    --White: #fefefe;
+    --Dark-Black: #141d2f;
+    --Navy-Blue: #1e2a47;
+}
+:root[data-theme="dark"] {
+    --Blue: #0079ff;
+    --Red: #f74646;
+    --Gray: #fff;
+    --Dark-Gray: #fff;
+    --Light-Black: #2b3442;
+    --Light: #141d2f;
+    --White: #1e2a47;
+    --Dark-Black: #fff;
+    --Navy-Blue: #fff;
+}
+@font-face {
+    font-family: SpaceMono;
+    src: url(../fonts/SpaceMono-Regular.ttf);
+}
+@font-face {
+    font-family: SpaceMonoBold;
+    src: url(../fonts/SpaceMono-Bold.ttf);
+}
+body {
+    font-family: SpaceMono;
+    font-size: 15px;
+    line-height: 25px;
+    background-color: var(--Light);
+    transition: background 0.2s linear;
+}
+
+h1 {
+    font-family: SpaceMonoBold;
+    font-size: 26px;
+}
+h2 {
+    font-family: SpaceMonoBold;
+    font-size: 22px;
+}
+h3 {
+    font-family: SpaceMono;
+    font-size: 16px;
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+}
+.container {
+    width: 730px;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+main {
+    width: 100%;
+    margin: auto;
+}
+.name {
+    color: var(--Dark-Black);
+}
+.nav {
+    background-color: transparent;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav h1 {
+    color: var(--Dark-Black);
+}
+.nav .toggle {
+    width: 78px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all ease-in 0.3;
+    font-size: 13px;
+    overflow: visible;
+}
+
+.nav .toggle p {
+    font-family: SpaceMonoBold;
+    margin-right: 6px;
+    color: var(--Gray);
+}
+.nav .toggle:hover p {
+    color: #90a4d4;
+}
+.nav .toggle:active #sunp {
+    color: #fff;
+}
+.nav .toggle:active #moonp {
+    color: #222731;
+}
+
+.nav .toggle #dark,
+.nav .toggle #light {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3 ease-in-out;
+    transform: translateX(3);
+    text-transform: capitalize;
+}
+.nav .toggle #dark {
+    display: flex;
+}
+.nav .toggle #light {
+    display: none;
+}
+
+.nav .toggle #moon {
+    margin-left: 8px;
+}
+.nav .toggle:hover #sun {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(19%) saturate(590%)
+        hue-rotate(184deg) brightness(98%) contrast(92%);
+}
+.nav .toggle:hover #moon {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(19%) saturate(590%)
+        hue-rotate(184deg) brightness(98%) contrast(92%);
+}
+.nav .toggle:active #moon {
+    color: #222731;
+    filter: brightness(0) saturate(100%) invert(13%) sepia(14%) saturate(442%)
+        hue-rotate(154deg) brightness(94%) contrast(93%);
+}
+
+.nav .toggle:active #sun {
+    color: #fff;
+}
+.nav .toggle:active #light svg {
+    color: #fff;
+}
+.nav .toggle:active #light {
+    color: #fff;
+}
+.search-bar {
+    height: 69px;
+    width: 100%;
+    background-color: var(--White);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 36px;
+    margin-bottom: 24px;
+    box-shadow: 2px 2px 50px 2px rgb(0, 0, 0, 0.1);
+}
+
+.search-bar svg {
+    margin-left: 32px;
+    margin-top: 10px;
+}
+.search-bar input {
+    font-family: SpaceMono;
+    width: 410px;
+    height: 90%;
+    border: none;
+    background-color: transparent;
+    margin-left: 24px;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--Dark-Black);
+}
+.search-bar input::placeholder {
+    color: var(--Dark-Gray);
+}
+.search-bar input:focus {
+    border: none;
+    outline: none;
+}
+.search-bar span {
+    color: var(--Red);
+    visibility: hidden;
+    height: 22px;
+    width: 92px;
+    margin-right: 24px;
+    font-size: 10px;
+    font: bold;
+    font-weight: 900;
+}
+.search-bar button {
+    height: 50px;
+    width: 106px;
+    color: #fff;
+    background-color: var(--Blue);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.search-bar button:hover {
+    background-color: #60abff;
+}
+.content {
+    width: 100%;
+    height: 457px;
+    display: flex;
+    background-color: var(--White);
+    border-radius: 15px;
+    box-shadow: 1px 10px 50px 1px rgb(0, 0, 0, 0.1);
+}
+
+.content .oval {
+    width: 165px;
+}
+.content .oval img {
+    width: 117px;
+    height: 117px;
+    border-radius: 50%;
+    margin: 48px 0 0 48px;
+}
+.content .main {
+    width: 480px;
+    margin-left: 48px;
+    margin-top: 44px;
+}
+.content .main .date {
+    width: 480px;
+    display: grid;
+    gap: 2px 124px;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.content .main .date p {
+    color: var(--Gray);
+}
+.content .main .username {
+    font-family: SpaceMono;
+    font-weight: 100;
+    color: var(--Blue);
+}
+.content .main .bio {
+    /* height: 60px; */
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--Dark-Gray);
+    overflow: hidden;
+    /* background-color: red; */
+}
+.content .main .info {
+    width: 480px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    background-color: var(--Light);
+    border-radius: 10px;
+    margin-top: 32px;
+}
+
+.content .main .info .repo {
+    margin-right: 55px;
+    margin-left: 32px;
+}
+.content .main .info .followers {
+    margin-right: 82px;
+}
+.content .main .info.following {
+    margin-right: 83px;
+    margin-right: 73px;
+}
+.content .main .info .info-child {
+    width: 72px;
+    height: 53px;
+}
+.content .main .info .info-child .text {
+    font-size: 13px;
+    color: var(--Dark-Gray);
+}
+.content .main .info .info-child span {
+    font-family: SpaceMonoBold;
+    font-size: 22px;
+    color: var(--Navy-Blue);
+}
+.contact {
+    margin-top: 37px;
+    width: 100%;
+    display: grid;
+    gap: 18px 62px;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 48px;
+}
+.contact .items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.contact .items a {
+    color: var(--Dark-Gray);
+    border: 1px solid transparent;
+    font-size: 14px;
+}
+.contact .items a:hover {
+    /* border-bottom: 1px solid var(--Dark-Gray); */
+    text-decoration: underline;
+}
+.contact .items svg {
+    margin-right: 16px;
+}
+.contact #location {
+    margin-left: 5px;
+}
+.contact .items #twitter-img {
+    color: var(--Dark-Gray);
+    opacity: 0.5;
+}
+
+.contact #twitter {
+    color: var(--Dark-Gray);
+    opacity: 0.5;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 76%;
+        /* overflow-y: hidden;
+        overflow-x: visible; */
+    }
+    .search-bar {
+        overflow: visible;
+    }
+    .search-bar button {
+        margin-right: 10px;
+    }
+    .content {
+        display: block;
+        position: relative;
+        /* height: 481px; */
+    }
+    .content .oval {
+        height: 117px;
+        position: absolute;
+    }
+    .content .oval img {
+        margin: 27px 0 0 40px;
+    }
+    .content .main {
+        position: absolute;
+        margin-top: 40px;
+        left: -1px;
+        width: 85%;
+    }
+    .content .main .date {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        /* height: 117px; */
+        margin-bottom: 71px;
+        margin-left: 125px;
+    }
+    .content .main .date .username {
+        position: absolute;
+        top: 26px;
+    }
+    .content .main .date .join-date {
+        position: absolute;
+        top: 50px;
+    }
+    .content .main .bio {
+        margin-top: 24px;
+        margin-bottom: 32px;
+    }
+    .content .main .info {
+        margin-top: 0;
+        width: 100%;
+    }
+    .contact {
+        margin-bottom: 40px;
+        gap: 17px 52px;
+    }
+}
+@media only screen and (max-width: 745px) {
+    body {
+        overflow: hidden;
+    }
+    container {
+        overflow: hidden;
+    }
+}
+@media only screen and (max-width: 620px) {
+    .contact {
+        gap: 13px 11px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .container {
+        width: 327px;
+    }
+    .search-bar img {
+        width: 20px;
+        height: 20px;
+        margin-left: 16px;
+    }
+    .search-bar input {
+        width: 213px;
+        height: 45px;
+        margin-left: 9px;
+        font-size: 13px;
+    }
+    .search-bar span {
+        display: none;
+    }
+    .search-bar button {
+        height: 46px;
+        width: 84px;
+        margin-right: 7px;
+    }
+    .content .oval img {
+        margin: 32px 0 0 24px;
+        width: 70px;
+        height: 70px;
+    }
+    .content .main .date {
+        margin-bottom: 33px;
+        margin-left: 83px;
+        width: 144px;
+    }
+    .name {
+        font-size: 15px;
+    }
+    .content .main .date .username {
+        font-size: 13px;
+    }
+    .content .main .date .join-date {
+        /* position: absolute; */
+        /* top: 50px; */
+        font-size: 13px;
+    }
+    .content .main {
+        margin-top: 32px;
+        margin-left: 32px;
+    }
+    .content .main .bio {
+        margin-top: 28px;
+        margin-bottom: 23px;
+        width: 279px;
+        font-size: 13px;
+    }
+    .content .main .info {
+        width: 279px;
+        justify-content: space-evenly;
+        margin-top: 5px;
+    }
+    .content .main .info .info-child {
+        width: 89px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 11px;
+    }
+    .content .main .info .info-child .text {
+        font-size: 11px;
+    }
+    .content .main .info .info-child span {
+        font-size: 16px;
+    }
+    .content .main .info .repo {
+        margin-right: 0;
+        margin-left: 0;
+        width: 71px;
+    }
+    .content .main .info .followers {
+        margin-right: 0;
+        margin-left: 0;
+        width: 81px;
+    }
+    .content .main .info .following {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .contact {
+        width: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 6px 0;
+        margin-top: 24px;
+        align-items: flex-start;
+    }
+    .contact .items a {
+        font-size: 13px;
+    }
+}
