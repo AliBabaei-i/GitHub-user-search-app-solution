@@ -173,15 +173,13 @@ async function getUser() {
                 document.querySelector("#bio").innerHTML =
                     "This user has no bio.";
             }
-            const char = new RegExp("[\u0600-\u06FF]");
-            document.querySelector("#bio").style.direction =
-                char.test(document.querySelector("#bio").value) === true
-                    ? "rtl"
-                    : "ltr";
-            document.querySelector(".bio").style.direction =
-                char.test(document.querySelector(".bio").value) === true
-                    ? "rtl"
-                    : "ltr";
+            document.querySelector("#bio").style.direction=data.bio.split("ی").length - 1 >
+            data.bio.split("a").length - 1 ? "rtl" : "ltr";
+            // const char = new RegExp("[\u0600-\u06FF]");
+            // document.querySelector("#bio").style.direction =
+            //     char.test(document.querySelector("#bio").value) === true
+            //         ? "rtl"
+            //         : "ltr";
             document.querySelector("#followers").innerHTML = data.following;
             document.querySelector("#following").innerHTML = data.followers;
             document.querySelector("#repo").innerHTML = data.public_repos;
