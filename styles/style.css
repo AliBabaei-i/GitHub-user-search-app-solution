@@ -448,19 +448,26 @@ main {
     .container {
         width: 327px;
     }
-
+    .search-bar {
+        position: relative;
+    }
     .search-bar svg {
         margin-left: 16px;
     }
     .search-bar input {
         width: 184px;
         height: 45px;
-        margin-left: 9px;
+        margin-left: 5px;
         font-size: 12px;
     }
 
     .search-bar span {
-        display: none;
+        visibility: hidden;
+        margin-right: 0;
+        position: absolute;
+        right: 86px;
+        font-size: 10px;
+        /* top: 2px; */
     }
     .search-bar button {
         height: 46px;
