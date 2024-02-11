@@ -42,16 +42,17 @@ async function getUser() {
         .then((response) => {
             if (!response.ok) {
                 if (response.status === 404) {
+                    notFound();
                     throw new Error("Data not found");
                 } else if (response.status === 500) {
-                 
+                 notFound();
                     throw new Error("Server error");
                 } else if (response.status === 403) {
-               
+               notFound();
                     alert("need vpn to load data");
                     throw new Error("need vpn to load data");
                 } else {
-              
+              notFound();
                     throw new Error("Network response was not ok");
                 }
             }
