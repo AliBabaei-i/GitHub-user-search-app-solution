@@ -25,8 +25,8 @@ input.addEventListener("input", (e) => {
     }
 });
 
-const notFound = (r) => {
-    console.log("notFound running" + r);
+const notFound = () => {
+  
     document.querySelector("#error").style.visibility = "visible";
     document.querySelector("#username").innerHTML = "@octocat";
     document.querySelector("#name").innerHTML = `The Octocat`;
@@ -42,17 +42,16 @@ async function getUser() {
         .then((response) => {
             if (!response.ok) {
                 if (response.status === 404) {
-                    notFound(1);
                     throw new Error("Data not found");
                 } else if (response.status === 500) {
-                    notFound(2);
+                 
                     throw new Error("Server error");
                 } else if (response.status === 403) {
-                    notFound(3);
+               
                     alert("need vpn to load data");
                     throw new Error("need vpn to load data");
                 } else {
-                    notFound(4);
+              
                     throw new Error("Network response was not ok");
                 }
             }
@@ -60,8 +59,7 @@ async function getUser() {
             return response.json();
         })
         .then((data) => {
-            // setData(data);
-            console.log(data);
+            // console.log(data);
             document.querySelector("#name").innerHTML = `${data.login}`;
             document.querySelector("#username").innerHTML = `@${data.login}`;
             document.querySelector("#bio").innerHTML = data.bio;
@@ -183,10 +181,10 @@ async function getUser() {
                 document.querySelector("#awebsite-img").style.opacity = "1";
             }
         })
-        .catch((error) => {
-            notFound(5);
-            console.error("Error", error);
-        });
+        // .catch((error) => {
+        
+        //     console.error("Error", error);
+        // });
 }
 
 document.querySelector("#input").addEventListener("keydown", (e) => {
