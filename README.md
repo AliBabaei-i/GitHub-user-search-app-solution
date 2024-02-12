@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: ![here](!https://alibabaei-i.github.io/GitHub-user-search-app-solution)
+- Live Site URL: (https://alibabaei-i.github.io/GitHub-user-search-app-solution)
 
 ## My process
 
