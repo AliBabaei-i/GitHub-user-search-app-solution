@@ -1,28 +1,70 @@
 const changeTheme = document.getElementById("change-theme");
 const url = "https://api.github.com/users/";
+const theme = window.localStorage.getItem("data-theme");
+const rootElement = document.documentElement;
+
 const switchTheme = () => {
-    const rootElement = document.documentElement;
     const dataTheme = rootElement.getAttribute("data-theme");
     const newTheme = dataTheme === "light" ? "dark" : "light";
     rootElement.setAttribute("data-theme", newTheme);
     if (newTheme == "dark") {
         document.querySelector("#light").style.display = "flex";
         document.querySelector("#dark").style.display = "none";
-    } else {
-        document.querySelector("#light").style.display = "none";
-        document.querySelector("#dark").style.display = "flex";
+        window.localStorage.setItem("data-theme", "dark");
+        return;
     }
+    document.querySelector("#light").style.display = "none";
+    document.querySelector("#dark").style.display = "flex";
+    window.localStorage.setItem("data-theme", "light");
 };
+
+let executed = false;
+
+function myFunction() {
+    if (!executed) {
+        if (theme == "dark") {
+            rootElement.setAttribute("data-theme", "dark");
+            document.querySelector("#light").style.display = "flex";
+            document.querySelector("#dark").style.display = "none";
+            window.localStorage.setItem("data-theme", "dark");
+        } else if (theme == "light") {
+            rootElement.setAttribute("data-theme", "light");
+            document.querySelector("#light").style.display = "none";
+            document.querySelector("#dark").style.display = "flex";
+            window.localStorage.setItem("data-theme", "light");
+        }
+        executed = true;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", myFunction);
 changeTheme.addEventListener("click", switchTheme);
 
 const input = document.querySelector("#input");
+const submit = document.querySelector("#btn");
 
 input.addEventListener("input", (e) => {
+    document.querySelector("#error").style.visibility = "hidden";
     if (e.target.value.length > 18) {
         input.value = `${e.target.value.substring(0, 16)}...`;
     } else {
         return;
     }
+    e.preventDefault();
+});
+input.addEventListener("click", (e) => {
+    if (e.target.value.length > 18) {
+        input.value = `${e.target.value.substring(0, 16)}...`;
+    } else {
+        return;
+    }
+    e.preventDefault();
+});
+document.querySelector("#form").addEventListener("submit", (e) => {
+    e.preventDefault();
+});
+submit.addEventListener("click", (e) => {
+    e.preventDefault();
 });
 
 const notFound = (r) => {
@@ -31,7 +73,7 @@ const notFound = (r) => {
     document.querySelector("#username").innerHTML = "@octocat";
     document.querySelector("#name").innerHTML = `The Octocat`;
     document.querySelector("#avatar").src = "./assets/Oval.svg";
-    document.querySelector("#bio").style.direction="ltr"
+    document.querySelector("#bio").style.direction = "ltr";
     document.querySelector("#bio").innerHTML = "This user has no bio.";
     document.querySelector("#followers").innerHTML = "0";
     document.querySelector("#following").innerHTML = "0";
@@ -138,7 +180,6 @@ const notFound = (r) => {
 //     document.querySelector("#avatar").src = data.avatar_url;
 // }
 async function getUser() {
-    console.log("fetching user info from github api ...");
     // if (input.value == "") {
     //     document.querySelector("#error").style.visibility = "visible";
     //     document.querySelector("#error").innerHTML = "Enter username";
@@ -165,8 +206,6 @@ async function getUser() {
             return response.json();
         })
         .then((data) => {
-            // setData(data);
-            console.log(data);
             document.querySelector("#name").innerHTML = `${data.login}`;
             document.querySelector("#username").innerHTML = `@${data.login}`;
             document.querySelector("#bio").innerHTML = data.bio;
@@ -174,8 +213,10 @@ async function getUser() {
                 document.querySelector("#bio").innerHTML =
                     "This user has no bio.";
             }
-            document.querySelector("#bio").style.direction=data.bio.split("ی").length - 1 >
-            data.bio.split("a").length - 1 ? "rtl" : "ltr";
+            // document.querySelector("#bio").style.direction =
+            //     data.bio.split("ی").length - 1 > data.bio.split("a").length - 1
+            //         ? "rtl"
+            //         : "ltr";
             // const char = new RegExp("[\u0600-\u06FF]");
             // document.querySelector("#bio").style.direction =
             //     char.test(document.querySelector("#bio").value) === true
@@ -292,8 +333,8 @@ async function getUser() {
     // });
 }
 
-document.querySelector("#input").addEventListener("keydown", (e) => {
-    if (e.code === "Enter") {
-        getUser();
-    }
-});
+// document.querySelector("#input").addEventListener("keydown", (e) => {
+//     if (e.code === "Enter") {
+//         getUser();
+//     }
+// });
