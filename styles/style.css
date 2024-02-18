@@ -105,7 +105,10 @@ main {
 .nav .toggle:active #moonp {
     color: #222731;
 }
-
+.nav #sunp,
+#moonp {
+    text-transform: uppercase;
+}
 .nav .toggle #dark,
 .nav .toggle #light {
     width: 100%;
@@ -179,6 +182,8 @@ main {
     width: 57px;
 }
 .search-bar svg {
+    /* margin-left: 32px;
+    margin-right: 23px; */
     height: 24px;
     width: 24px;
     cursor: pointer;
@@ -272,6 +277,7 @@ main {
     margin-top: 20px;
     color: var(--Dark-Gray);
     overflow: hidden;
+    /* background-color: red; */
 }
 .content .main .info {
     width: 480px;
@@ -328,6 +334,7 @@ main {
     font-size: 14px;
 }
 .contact .items a:hover {
+    /* border-bottom: 1px solid var(--Dark-Gray); */
     text-decoration: underline;
 }
 .contact .items svg {
@@ -349,6 +356,8 @@ main {
 @media only screen and (max-width: 768px) {
     .container {
         width: 76%;
+        /* overflow-y: hidden;
+        overflow-x: visible; */
     }
     .search-bar {
         overflow: visible;
@@ -364,9 +373,14 @@ main {
     .search-bar span {
         font-size: 10px;
     }
+    /* .search-bar svg {
+        height: 20px;
+        width: 20px;
+    } */
     .content {
         display: block;
         position: relative;
+        /* height: 481px; */
     }
     .content .oval {
         height: 117px;
@@ -386,6 +400,7 @@ main {
         flex-direction: column;
         align-items: flex-start;
         position: relative;
+        /* height: 117px; */
         margin-bottom: 71px;
         margin-left: 125px;
     }
@@ -466,9 +481,13 @@ main {
     .search-bar {
         position: relative;
     }
+    /* .search-bar svg {
+        margin-left: 16px;
+    } */
     .search-bar input {
         width: 184px;
         height: 45px;
+        /* margin-left: 5px; */
         font-size: 12px;
     }
 
@@ -477,7 +496,8 @@ main {
         margin-right: 0;
         position: absolute;
         right: 86px;
-        font-size: 10px;   
+        font-size: 10px;
+        /* top: 2px; */
     }
     .search-bar input[type="submit"] {
         height: 46px;
