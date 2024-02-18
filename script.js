@@ -57,7 +57,7 @@ submit.addEventListener("click", (e) => {
 });
 
 const notFound = () => {
-    document.querySelector("#error").style.visibility = "visible";
+   document.querySelector("#error").style.visibility = "visible";
     document.querySelector("#username").innerHTML = "@octocat";
     document.querySelector("#name").innerHTML = `The Octocat`;
     document.querySelector("#avatar").src = "./assets/Oval.svg";
@@ -67,6 +67,12 @@ const notFound = () => {
     document.querySelector("#following").innerHTML = "0";
     document.querySelector("#repo").innerHTML = "0";
     document.querySelector("#input").placeholder = "";
+    document.querySelector("#acompany").innerHTML = "@github";
+    document.querySelector("#acompany").href = "#";
+    document.querySelector("#location").innerHTML = "San Francisco";
+    document.querySelector("#location").href = "#";
+    document.querySelector("#awebsite").innerHTML = "https://github.blog";
+    document.querySelector("#awebsite").href = "https://github.blog";
 };
 async function getUser() {
     await fetch(url + input.value)
